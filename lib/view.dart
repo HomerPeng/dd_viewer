@@ -1,6 +1,6 @@
 
 
-part of dd_viewer;
+part of 'dd_viewer.dart';
 
 
 ///插件支持的平台
@@ -21,7 +21,7 @@ class SuperView extends StatelessWidget {
        case SupportPlatform.android:
          return AndroidSupportView(fileX: file);
        case SupportPlatform.unSupport:
-         return const Text('未支持的平台');
+         return  Text('Unsupported Platforms: ${platform.name}');
     }
   }
 

@@ -1,3 +1,7 @@
+#  0.1.0
+
+* Update dependencies, adapt to flutter 3.32.1
+
 #  0.0.7
 
 * 更新文档

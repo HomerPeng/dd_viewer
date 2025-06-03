@@ -2,27 +2,52 @@ import 'dart:io';
 
 import 'package:dd_viewer/dd_viewer.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:path/path.dart' as path;
 
 part 'filex.freezed.dart';
 
-extension FileXEx on FileX {
-  Future<String> getOpenPath() async {
-    if(this is NetWorkFileX){
-      final saveFile = await DdDownloadUtil.download((this as NetWorkFileX).url);
-      return saveFile.path;
+
+extension _FileEx on String {
+  SupportFile get fileType {
+    final ex = path.extension(this);
+    switch(ex){
+      case '.xls':
+        return SupportFile.xls;
+      case '.pdf':
+        return SupportFile.pdf;
+      case '.docx':
+        return SupportFile.word;
+      case '.jpg':
+        return SupportFile.img;
+      case '.png':
+        return SupportFile.img;
+      case '.jpeg':
+        return SupportFile.img;
+      default:
+        return SupportFile.noSupport;
     }
-    return map<String>(netWork: (value)  {
-      return "";
-    }, file: (value) {
-      return value.file.path;
-    }, path: (value) {
-      return value.path;
-    },);
   }
 }
 
+
+extension FileXEx on FileX {
+  Future<String> getOpenPath() async {
+    return switch(this){
+      NetWorkFileX(:final url) => url,
+      LocalFileFileX(:final file) => file.path,
+      LocalPathFileX(:final path) => path,
+    };
+  }
+
+  SupportFile get fileType => switch(this){
+    NetWorkFileX(:final url) => url.fileType,
+    LocalFileFileX(:final file) => file.path.fileType,
+    LocalPathFileX(:final path) => path.fileType,
+  };
+}
+
 @freezed
-class FileX with _$FileX {
+sealed class FileX with _$FileX {
   const FileX._();
 
   factory FileX.netWork({required String url, FileXType? fileXType}) =

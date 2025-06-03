@@ -1,30 +1,30 @@
 name: dd_viewer
 description: A universal preview device for PDF, Word, Excel, text, png, and jpg
-version: 0.0.7
+version: 0.1.0
 #homepage:
 
 environment:
-  sdk: '>=2.19.0 <4.0.0'
+  sdk: '>=3.0.0 <4.0.0'
   flutter: ">=3.7.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  plugin_platform_interface: ^2.1.4
-  logger: ^1.4.0
-  path_provider: ^2.0.15
-  dio: ^5.2.1+1
-  permission_handler: ^10.4.1
-  freezed: ^2.3.5
-  freezed_annotation: ^2.2.0
-  connectivity_plus: ^4.0.1
-  path: ^1.6.3
+  plugin_platform_interface: ^2.1.8
+  logger: ^2.5.0
+  path_provider: ^2.1.5
+  dio: ^5.8.0+1
+  permission_handler: ^12.0.0+1
+  freezed: ^3.0.6
+  freezed_annotation: ^3.0.0
+  connectivity_plus: ^6.1.4
+  path: ^1.9.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.2
-  build_runner: ^2.4.6
+  flutter_lints: ^6.0.0
+  build_runner: ^2.4.15
 
 
 
