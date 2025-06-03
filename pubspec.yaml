@@ -1,7 +1,7 @@
 name: dd_viewer
 description: A universal preview device for PDF, Word, Excel, text, png, and jpg
-version: 0.1.0
-#homepage:
+version: 0.1.0+1
+homepage: https://github.com/mdddj/dd_viewer
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
